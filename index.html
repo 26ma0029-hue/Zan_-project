@@ -1,0 +1,579 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1.0" name="viewport"/>
+<meta content="Digital Humanities Archive – Abandoned Places of Jharkhand: spatial, architectural, industrial and cultural heritage records." name="description"/>
+<title>Abandoned Places of Jharkhand | Digital Humanities Archive</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;family=Playfair+Display:wght@500;600;700&amp;display=swap" rel="stylesheet"/>
+<style>
+:root{--olive:#30392f;--olive2:#4b5847;--slate:#26302f;--brown:#76543d;--gold:#b28a5b;--cream:#f9f8f6;--paper:#fffefa;--line:#ddd9d0;--muted:#6c716b;--ink:#202723;--max:1180px;--radius:20px;--shadow:0 18px 55px rgba(31,40,37,.10)}
+*{box-sizing:border-box;margin:0;padding:0}html{scroll-behavior:smooth}body{font-family:Inter,system-ui,sans-serif;background:var(--cream);color:var(--ink);line-height:1.7}a{color:inherit;text-decoration:none}img{display:block;width:100%}button,input,select{font:inherit}
+h1,h2,h3,.serif{font-family:"Playfair Display",Georgia,serif}
+header{min-height:92vh;color:#fff;position:relative;background:linear-gradient(110deg,rgba(20,28,25,.94),rgba(39,49,43,.78),rgba(55,42,31,.65)),url("https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&w=2200&q=85") center/cover;display:flex;flex-direction:column}
+.topbar{width:min(calc(100% - 40px),var(--max));margin:auto;padding:23px 0;border-bottom:1px solid #ffffff22;display:flex;align-items:center;justify-content:space-between;gap:20px}
+.brand{display:flex;align-items:center;gap:11px;font-size:.82rem;font-weight:800;letter-spacing:.06em}.mark{width:38px;height:38px;border:1px solid #ffffff88;border-radius:50%;display:grid;place-items:center;font-family:"Playfair Display";font-size:16px}
+nav ul{display:flex;gap:25px;list-style:none}nav a{font-size:.8rem;color:#ffffffd5}nav a:hover{color:#fff}
+.hero{width:min(calc(100% - 40px),var(--max));margin:auto;padding:75px 0 115px}.eyebrow,.kicker{text-transform:uppercase;letter-spacing:.17em;font-size:.7rem;font-weight:800}.eyebrow{color:#d6c09e;margin-bottom:16px}
+h1{font-size:clamp(3rem,7vw,6.8rem);line-height:.98;letter-spacing:-.04em;max-width:900px}.hero p{max-width:690px;margin:27px 0 34px;color:#ffffffc9;font-size:1.08rem}
+.actions{display:flex;gap:12px;flex-wrap:wrap}.btn{border-radius:999px;padding:12px 18px;border:1px solid transparent;font-size:.82rem;font-weight:800;display:inline-flex;align-items:center;justify-content:center;cursor:pointer;transition:.25s}.btn:hover{transform:translateY(-2px)}.primary{background:#eee7da;color:var(--olive)}.ghost{border-color:#ffffff55;color:#fff;background:#ffffff0d}
+.hero-meta{display:flex;gap:20px;flex-wrap:wrap;margin-top:62px;color:#ffffff9c;text-transform:uppercase;letter-spacing:.1em;font-size:.67rem}
+section{width:min(calc(100% - 40px),var(--max));margin:auto;padding:100px 0}.head{display:flex;justify-content:space-between;align-items:end;gap:35px;margin-bottom:45px}.kicker{color:var(--brown);margin-bottom:10px}h2{font-size:clamp(2.2rem,4.5vw,4rem);line-height:1.05;letter-spacing:-.025em}.intro{max-width:510px;color:var(--muted);font-size:.91rem}
+.about{display:grid;grid-template-columns:1.08fr .92fr;gap:70px}.copy p{margin-bottom:23px;color:#505750;font-size:1rem}.quote{border-left:3px solid var(--gold);padding-left:20px;margin-top:35px;font:1.3rem/1.45 "Playfair Display";color:var(--olive)}
+.overview{background:var(--olive);color:#fff;padding:32px;border-radius:var(--radius);box-shadow:var(--shadow)}.overview h3{font-size:1.7rem;margin:10px 0 23px}.stats{display:grid;grid-template-columns:1fr 1fr;border-top:1px solid #ffffff22}.stat{padding:19px 0;border-bottom:1px solid #ffffff1d}.stat strong{font:1.9rem "Playfair Display";display:block}.stat span{font-size:.65rem;text-transform:uppercase;letter-spacing:.08em;color:#ffffff99}
+#archive{width:100%;background:#efede7;padding-left:max(20px,calc((100% - var(--max))/2));padding-right:max(20px,calc((100% - var(--max))/2))}
+.toolbar{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:25px}.search{flex:1;min-width:240px;border:1px solid var(--line);background:#fff;padding:13px 16px;border-radius:12px;outline:none}.filter{border:1px solid var(--line);background:#fff;padding:13px 15px;border-radius:12px;color:#454b45}
+.archive-stats{display:flex;gap:12px;align-items:center;color:var(--muted);font-size:.76rem;margin-bottom:24px}.archive-stats b{color:var(--olive)}
+.records{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.record-card{background:var(--paper);border:1px solid var(--line);border-radius:17px;overflow:hidden;transition:.3s;display:flex;flex-direction:column}.record-card:hover{transform:translateY(-5px);box-shadow:0 14px 38px #20282012}.record-image-wrap{height:205px;position:relative;overflow:hidden;background:#384137}.record-image-wrap img{height:100%;object-fit:cover;transition:.5s}.image-link{display:block;height:100%}.image-link:focus-visible{outline:3px solid var(--gold);outline-offset:-3px}.record-card:hover img{transform:scale(1.04)}.record-index{position:absolute;top:12px;left:12px;background:#202820dd;color:#fff;padding:4px 8px;border-radius:5px;font-size:.63rem;font-weight:800}.img-error::after{content:"Image unavailable";position:absolute;inset:0;display:grid;place-items:center;color:#ffffffaa;font-size:.75rem}
+.record-body{padding:19px;display:flex;flex-direction:column;flex:1}.record-meta{display:flex;justify-content:space-between;gap:8px;color:var(--brown);font-size:.61rem;text-transform:uppercase;letter-spacing:.08em;font-weight:800}.record-body h3{font-size:1.3rem;line-height:1.18;margin:9px 0 9px;color:var(--olive)}.record-body p{font-size:.78rem;line-height:1.65;color:var(--muted);flex:1}.record-footer{border-top:1px solid var(--line);margin-top:16px;padding-top:12px;display:flex;justify-content:space-between;gap:10px;font-size:.63rem;color:#777b75}.record-footer b{color:#3e463f}.record-footer a{color:var(--brown);font-weight:800;white-space:nowrap}.record-footer a:hover{text-decoration:underline}
+.metadata{display:grid;grid-template-columns:.85fr 1.15fr;gap:65px}.metadata p{color:var(--muted);margin:18px 0;font-size:.9rem}.meta-list{border-top:1px solid var(--line)}.meta-row{display:grid;grid-template-columns:38px 1fr 25px;gap:15px;padding:20px 0;border-bottom:1px solid var(--line);align-items:center}.meta-no{color:var(--brown);font:1.15rem "Playfair Display"}.meta-row h3{font-family:Inter;font-size:.92rem}.meta-row p{font-size:.76rem;margin:3px 0}
+.team{width:100%;background:var(--olive);color:#fff;padding-left:max(20px,calc((100% - var(--max))/2));padding-right:max(20px,calc((100% - var(--max))/2))}.team .kicker{color:#d2b991}.team .intro{color:#ffffff99}.people{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}.person{padding:27px;border:1px solid #ffffff1d;background:#ffffff08;border-radius:19px;transition:.3s}.person:hover{transform:translateY(-6px);background:#ffffff10}.avatar{width:58px;height:58px;border-radius:50%;background:#d2c0a7;color:var(--olive);display:grid;place-items:center;font:1.2rem "Playfair Display";margin-bottom:25px}.person h3{font-size:1.4rem}.role{font-size:.63rem;text-transform:uppercase;letter-spacing:.1em;color:#ffffff99}.roll{margin-top:24px;font-size:.76rem;color:#ffffffb0}.roll b{color:#fff}
+.contact{display:grid;grid-template-columns:1fr 1fr;gap:18px}.contact-card{padding:31px;border:1px solid var(--line);border-radius:var(--radius);background:#fffefa}.contact-card.dark{background:#343d35;color:#fff;border-color:#343d35}.contact-card h3{font-size:1.7rem;margin-bottom:10px}.contact-card p{color:var(--muted);font-size:.84rem}.dark p{color:#ffffff9d}.contact-link{display:inline-block;margin-top:22px;border-bottom:1px solid currentColor;font-weight:800;font-size:.8rem}
+footer{background:#202724;color:#ffffff99;padding:28px 20px;font-size:.68rem}.foot{width:min(100%,var(--max));margin:auto;display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}.foot strong{font:1rem "Playfair Display";color:#fff}
+.reveal{opacity:0;transform:translateY(22px);transition:.7s ease}.reveal.visible{opacity:1;transform:none}
+@media(max-width:950px){.about,.metadata,.contact{grid-template-columns:1fr}.records{grid-template-columns:repeat(2,1fr)}.people{grid-template-columns:1fr 1fr}}
+@media(max-width:650px){nav ul{gap:10px}nav a{font-size:.65rem}.brand span:last-child{display:none}section{padding:72px 0}.head{display:block}.intro{margin-top:17px}.records,.people{grid-template-columns:1fr}.record-image-wrap{height:225px}.about{gap:35px}.hero{padding-top:55px}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.reveal{opacity:1;transform:none;transition:none}*{transition:none!important}}
+</style>
+</head>
+<body>
+<header id="home">
+<div class="topbar">
+<a class="brand" href="#home"><span class="mark">AH</span><span>JHARKHAND DIGITAL ARCHIVE</span></a>
+<nav aria-label="Main navigation"><ul>
+<li><a href="#about">About</a></li><li><a href="#archive">Archive</a></li><li><a href="#metadata">Metadata</a></li><li><a href="#team">Researchers</a></li><li><a href="#contact">Contact</a></li>
+</ul></nav>
+</div>
+<div class="hero">
+<div class="eyebrow">Digital Humanities · Spatial History · Architecture</div>
+<h1>Abandoned Places<br/>of Jharkhand</h1>
+<p>A Digital Humanities Spatial &amp; Architectural Archive documenting forgotten structures, mining landscapes, railway traces, historic forts, architectural remains and local memory.</p>
+<div class="actions"><a class="btn primary" href="#archive">Explore all records →</a><a class="btn ghost" href="#about">About the project</a></div>
+<div class="hero-meta"><span>Jharkhand, India</span><span>·</span><span>28 archive records</span><span>·</span><span>Academic project</span></div>
+</div>
+</header>
+<main>
+<section id="about">
+<div class="head reveal"><div><div class="kicker">01 — About</div><h2>Reading history<br/>through ruins.</h2></div><p class="intro">A Digital Humanities archive connecting architecture, geography, industrial history, images, sources and community memory.</p></div>
+<div class="about">
+<article class="copy reveal">
+<p>The plateau regions and dense forests of Jharkhand hold a quiet record of neglected historical and architectural heritage. Ruined forts and palaces of medieval Chero and Nagvanshi dynasties sit alongside disused colonial mining structures, railway outposts, and forest bungalows. These decaying structures serve as physical artifacts of tribal history, early industrial extraction, and shifting regional power dynamics that remain absent from mainstream archives.</p>
+<p>A Digital Humanities approach brings these forgotten landscapes to light by systematically recording their physical state, geographic coordinates, and surrounding oral traditions. Documenting these spaces through structured metadata, field photography, and geospatial mapping creates a permanent, accessible digital record. This archival effort preserves vulnerable cultural narratives, protects local memory from physical decay, and offers researchers a comprehensive framework to study the region's historical geography.</p>
+<div class="quote">“A ruin is not simply a building that has disappeared from use; it is an archive that continues to speak through place, material and memory.”</div>
+</article>
+<aside class="overview reveal">
+<div class="eyebrow">Archive at a glance</div><h3>From field traces to digital memory.</h3>
+<div class="stats"><div class="stat"><strong>28</strong><span>Source records</span></div><div class="stat"><strong>3</strong><span>Researchers</span></div><div class="stat"><strong>3</strong><span>Research clusters</span></div><div class="stat"><strong>∞</strong><span>Future records</span></div></div>
+</aside>
+</div>
+</section>
+<section id="archive">
+<div class="head reveal"><div><div class="kicker">02 — Spatial &amp; Visual Archive</div><h2>Explore the<br/>records.</h2></div><p class="intro">Every card below uses the supplied archive data. Images are clickable and open the same referenced online resource as the “Open source ↗” button.</p></div>
+<div class="toolbar">
+<input aria-label="Search archive" class="search" id="search" placeholder="Search place, district, fort, mine, railway..." type="search"/>
+<select aria-label="Filter by contributor" class="filter" id="contributor"><option value="all">All contributors</option><option>Zaheduli Slam</option><option>Amisha Kumari</option><option>Nisha Kumari</option></select>
+<select aria-label="Filter by location" class="filter" id="location"><option value="all">All locations</option></select>
+</div>
+<div class="archive-stats"><span>Showing <b id="count">28</b> of <b>28</b> records</span><span>·</span><span>Click “Open source ↗” to verify/read the supplied reference.</span></div>
+<div class="records" id="records">
+<article class="record-card reveal" data-contributor="zaheduli slam" data-location="sahibganj" data-name="teliagarhi fort">
+<div class="record-image-wrap">
+<img alt="Teliagarhi Fort — archival image" loading="lazy" onerror="this.closest('.record-image-wrap').classList.add('img-error')" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTWTGos0M7MFKwcEpZufulcUdTYD59-2OmoHks2KAahdA&amp;s"/>
+<span class="record-index">01</span>
+</div>
+<div class="record-body">
+<div class="record-meta"><span>Sahibganj</span><span>Research record</span></div>
+<h3>Teliagarhi Fort</h3>
+<p>Teliagarhi Fort, located in the Sahibganj district of Jharkhand, is believed to be the area's earliest monument, built during Shah Jahan's reign by a local Teli Zamindar who converted to Islam.</p>
+<div class="record-footer">
+<span>Contributor: <b>Zaheduli Slam</b></span>
+<a href="https://sahibganjmirror.com/listing/teliagarhi-fort-karamtola-sahibganj/" rel="noopener noreferrer" target="_blank">Open source ↗</a>
+</div>
+</div>
+</article>
+<article class="record-card reveal" data-contributor="zaheduli slam" data-location="sahibganj" data-name="singhi dalan">
+<div class="record-image-wrap">
+<img alt="Singhi Dalan — archival image" loading="lazy" onerror="this.closest('.record-image-wrap').classList.add('img-error')" src="https://sahibganjmirror.com/wp-content/uploads/2023/02/singhi-dalan-rajmahal-sahibganj-800x553.jpg"/>
+<span class="record-index">02</span>
+</div>
+<div class="record-body">
+<div class="record-meta"><span>Sahibganj</span><span>Research record</span></div>
+<h3>Singhi Dalan</h3>
+<p>Singhi Dalan (also known as the Hall of Stone) is a prominent historical monument situated along the right bank of the Ganges River in Rajmahal, Sahibganj district, Jharkhand. Built during the 17th century.</p>
+<div class="record-footer">
+<span>Contributor: <b>Zaheduli Slam</b></span>
+<a href="https://sahibganjmirror.com/listing/singhi-dalan-rajmahal-sahibganj/" rel="noopener noreferrer" target="_blank">Open source ↗</a>
+</div>
+</div>
+</article>
+<article class="record-card reveal" data-contributor="zaheduli slam" data-location="sahibganj" data-name="rajmahal trap stone quarries">
+<div class="record-image-wrap">
+<img alt="Rajmahal Trap Stone Quarries — archival image" loading="lazy" onerror="this.closest('.record-image-wrap').classList.add('img-error')" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRn6RH-xmJe3HG8QOUXVifB_V5qpMBmbiw9XqhjKdAdaA&amp;s=10"/>
+<span class="record-index">03</span>
+</div>
+<div class="record-body">
+<div class="record-meta"><span>Sahibganj</span><span>Research record</span></div>
+<h3>Rajmahal Trap Stone Quarries</h3>
+<p>The Rajmahal Trap stone quarries are intensive basalt and black rock mining sites located primarily in the Sahibganj and Pakur districts of northeastern Jharkhand.</p>
+<div class="record-footer">
+<span>Contributor: <b>Zaheduli Slam</b></span>
+<a href="https://www.iosrjournals.org/iosr-jagg/papers/Vol.%206%20Issue%202/Version-1/C0602012327.pdf" rel="noopener noreferrer" target="_blank">Open source ↗</a>
+</div>
+</div>
+</article>
+<article class="record-card reveal" data-contributor="zaheduli slam" data-location="pakur" data-name="pakur rajbari">
+<div class="record-image-wrap">
+<img alt="Pakur Rajbari — archival image" loading="lazy" onerror="this.closest('.record-image-wrap').classList.add('img-error')" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ6KG2PkYaNN0E8Vv6dE4Ft_lkpSGCsPvSyfOhqkAJXJzmwLJ095vsQ1KI&amp;s=10"/>
+<span class="record-index">04</span>
+</div>
+<div class="record-body">
+<div class="record-meta"><span>Pakur</span><span>Research record</span></div>
+<h3>Pakur Rajbari</h3>
+<p>Located in the Pakur district of Jharkhand, the Pakur Rajbari (Pakur Royal Palace) is a historical feudal estate established during the colonial era as the seat of local zamindars, now standing mostly abandoned.</p>
+<div class="record-footer">
+<span>Contributor: <b>Zaheduli Slam</b></span>
+<a href="https://villageinfo.in/jharkhand/pakur/pakuria/rajbari/" rel="noopener noreferrer" target="_blank">Open source ↗</a>
+</div>
+</div>
+</article>
+<article class="record-card reveal" data-contributor="zaheduli slam" data-location="jamtara district" data-name="palasthali railway station">
+<div class="record-image-wrap">
+<img alt="Palasthali Railway Station — archival image" loading="lazy" onerror="this.closest('.record-image-wrap').classList.add('img-error')" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSUc2yIsaSbVn4zlOD4i9fbkikAIivPCw6S432wyopJeg&amp;s=10"/>
+<span class="record-index">05</span>
+</div>
+<div class="record-body">
+<div class="record-meta"><span>Jamtara district</span><span>Research record</span></div>
+<h3>Palasthali Railway Station</h3>
+<p>Palasthali Railway Station (station code: PSME) is an abandoned terminal station in the Nala block of Jamtara district, Jharkhand, near the West Bengal border. It sat on the dead-end Bhimgara–Palasthali rail section.</p>
+<div class="record-footer">
+<span>Contributor: <b>Zaheduli Slam</b></span>
+<a href="https://www.reporters-collective.in/newsletters/jharkhands-abandoned-coal-mines" rel="noopener noreferrer" target="_blank">Open source ↗</a>
+</div>
+</div>
+</article>
+<article class="record-card reveal" data-contributor="zaheduli slam" data-location="dhanbad district" data-name="jharia coalfield">
+<div class="record-image-wrap">
+<img alt="Jharia Coalfield — archival image" loading="lazy" onerror="this.closest('.record-image-wrap').classList.add('img-error')" src="https://imgs.mongabay.com/wp-content/uploads/sites/30/2019/10/03113554/opencast-coal-jharia.jpg"/>
+<span class="record-index">06</span>
+</div>
+<div class="record-body">
+<div class="record-meta"><span>Dhanbad district</span><span>Research record</span></div>
+<h3>Jharia Coalfield</h3>
+<p>Jharia Coalfield in Jharkhand, India, contains underground fires burning continuously since 1916 due to unscientific colonial mining and spontaneous combustion. The Jharia Coalfield was largely abandoned and affected by mine-fire and subsidence conditions.</p>
+<div class="record-footer">
+<span>Contributor: <b>Zaheduli Slam</b></span>
+<a href="https://www.reporters-collective.in/trc/jharkhands-abandoned-coalfields" rel="noopener noreferrer" target="_blank">Open source ↗</a>
+</div>
+</div>
+</article>
+<article class="record-card reveal" data-contributor="zaheduli slam" data-location="dhanbad district" data-name="dharmabandh coal field">
+<div class="record-image-wrap">
+<img alt="Dharmabandh Coal Field — archival image" loading="lazy" onerror="this.closest('.record-image-wrap').classList.add('img-error')" src="https://imgs.mongabay.com/wp-content/uploads/sites/30/2022/09/08005331/A-coal-mined-region-in-Talcher.-Credit-Pramit-Karmakar-768x512.jpg"/>
+<span class="record-index">07</span>
+</div>
+<div class="record-body">
+<div class="record-meta"><span>Dhanbad district</span><span>Research record</span></div>
+<h3>Dharmabandh Coal Field</h3>
+<p>Dharmabandh is a closed coal mine and former mining settlement located in the Baghmara block of the Dhanbad district. The supplied archive notes exhaustion of viable reserves and safety hazards including land subsidence and underground mine fires.</p>
+<div class="record-footer">
+<span>Contributor: <b>Zaheduli Slam</b></span>
+<a href="https://www.opindia.com/2025/07/harkhand-read-about-the-400-year-old-palamu-forts-built-by-tribal-chero-kings-set-to-be-restored/" rel="noopener noreferrer" target="_blank">Open source ↗</a>
+</div>
+</div>
+</article>
+<article class="record-card reveal" data-contributor="amisha kumari" data-location="latehar" data-name="palamu fort">
+<div class="record-image-wrap">
+<img alt="Palamu Fort — archival image" loading="lazy" onerror="this.closest('.record-image-wrap').classList.add('img-error')" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSqiVtVM45KpdlNoHl3fIKz1txeH3cgRrph7FaRcGMcUg&amp;s=10"/>
+<span class="record-index">08</span>
+</div>
+<div class="record-body">
+<div class="record-meta"><span>Latehar</span><span>Research record</span></div>
+<h3>Palamu Fort</h3>
+<p>Palamu Fort fell into abandonment and ruin due to successive historical conquests, military demolitions by the British in the mid-19th century, and its isolated location inside dense forest terrain. The supplied notes also describe partial British demolition following internal conflicts and the 1857 revolt, and jungle encroachment.</p>
+<div class="record-footer">
+<span>Contributor: <b>Amisha Kumari</b></span>
+<a href="https://www.opindia.com/2025/07/harkhand-read-about-the-400-year-old-palamu-forts-built-by-tribal-chero-kings-set-to-be-restored/" rel="noopener noreferrer" target="_blank">Open source ↗</a>
+</div>
+</div>
+</article>
+<article class="record-card reveal" data-contributor="amisha kumari" data-location="ranchi" data-name='mccluskieganj: the "mini london" of india'>
+<div class="record-image-wrap">
+<a aria-label="Open source for record 09" class="image-link" href="https://www.reddit.com/r/ranchi/comments/1m5r2jz/mccluskieganj_the_only_angloindian_town_in_india/#lightbox" rel="noopener noreferrer" target="_blank"><img alt='McCluskieganj: The "Mini London" of India — archival image' loading="lazy" onerror="this.closest('.record-image-wrap').classList.add('img-error')" src="https://commons.wikimedia.org/wiki/Special:FilePath/McCluskieganj.jpg"/></a>
+<span class="record-index">09</span>
+</div>
+<div class="record-body">
+<div class="record-meta"><span>Ranchi</span><span>Research record</span></div>
+<h3>McCluskieganj: The "Mini London" of India</h3>
+<p>Founded in 1933 by Ernest Timothy McCluskie, this quiet town was built as a promised land and homeland for the Anglo-Indian community. The supplied notes describe its heritage bungalows and its reputation as an abandoned ghost town or unfulfilled dream after the original community's exodus.</p>
+<div class="record-footer">
+<span>Contributor: <b>Amisha Kumari</b></span>
+<a href="https://www.reddit.com/r/ranchi/comments/1m5r2jz/mccluskieganj_the_only_angloindian_town_in_india/#lightbox" rel="noopener noreferrer" target="_blank">Open source ↗</a>
+</div>
+</div>
+</article>
+<article class="record-card reveal" data-contributor="amisha kumari" data-location="ranchi" data-name="pithoria fort">
+<div class="record-image-wrap">
+<a aria-label="Open source for record 10" class="image-link" href="https://indianvagabond.com/2015/10/28/pithoria-fort-a-promise-and-a-curse/?amp=1" rel="noopener noreferrer" target="_blank"><img alt="Pithoria Fort — archival image" loading="lazy" onerror="this.closest('.record-image-wrap').classList.add('img-error')" src="https://static.toiimg.com/img/103554826/Master.jpg"/></a>
+<span class="record-index">10</span>
+</div>
+<div class="record-body">
+<div class="record-meta"><span>Ranchi</span><span>Research record</span></div>
+<h3>Pithoria Fort</h3>
+<p>During the Indian Rebellion of 1857, King Jagatpal Singh sided with the British Army instead of supporting local revolutionaries. The supplied notes connect the fort with his role in helping the British capture Thakur Vishwanath.</p>
+<div class="record-footer">
+<span>Contributor: <b>Amisha Kumari</b></span>
+<a href="https://indianvagabond.com/2015/10/28/pithoria-fort-a-promise-and-a-curse/?amp=1" rel="noopener noreferrer" target="_blank">Open source ↗</a>
+</div>
+</div>
+</article>
+<article class="record-card reveal" data-contributor="amisha kumari" data-location="hazaribagh" data-name="padma fort">
+<div class="record-image-wrap">
+<a aria-label="Open source for record 11" class="image-link" href="https://en.wikipedia.org/wiki/Padma,_Jharkhand" rel="noopener noreferrer" target="_blank"><img alt="Padma Fort — archival image" loading="lazy" onerror="this.closest('.record-image-wrap').classList.add('img-error')" src="https://commons.wikimedia.org/wiki/Special:FilePath/Padma.jpg"/></a>
+<span class="record-index">11</span>
+</div>
+<div class="record-body">
+<div class="record-meta"><span>Hazaribagh</span><span>Research record</span></div>
+<h3>Padma Fort</h3>
+<p>The Padma Fort (also known as Padma Palace or Hawa Mahal) is located in Padma, near Hazaribagh in Jharkhand. The supplied notes describe it as a historic seat and capital associated with the area.</p>
+<div class="record-footer">
+<span>Contributor: <b>Amisha Kumari</b></span>
+<a href="https://en.wikipedia.org/wiki/Padma,_Jharkhand" rel="noopener noreferrer" target="_blank">Open source ↗</a>
+</div>
+</div>
+</article>
+<article class="record-card reveal" data-contributor="amisha kumari" data-location="palamu" data-name="shahpur fort">
+<div class="record-image-wrap">
+<a aria-label="Open source for record 12" class="image-link" href="https://jharkhandculture.com/node/115" rel="noopener noreferrer" target="_blank"><img alt="Shahpur Fort — archival image" loading="lazy" onerror="this.closest('.record-image-wrap').classList.add('img-error')" src="https://jharkhandculture.com/sites/default/files/inline-images/palamau.jpg"/></a>
+<span class="record-index">12</span>
+</div>
+<div class="record-body">
+<div class="record-meta"><span>Palamu</span><span>Research record</span></div>
+<h3>Shahpur Fort</h3>
+<p>Shahpur Fort District headquarters is located on the banks of North Koyal river, about 2 miles away from Daltonganj, Palamu. The supplied notes state that the fort was constructed by descendants of Modini Rai.</p>
+<div class="record-footer">
+<span>Contributor: <b>Amisha Kumari</b></span>
+<a href="https://jharkhandculture.com/node/115" rel="noopener noreferrer" target="_blank">Open source ↗</a>
+</div>
+</div>
+</article>
+<article class="record-card reveal" data-contributor="amisha kumari" data-location="ranchi" data-name="ratu fort">
+<div class="record-image-wrap">
+<a aria-label="Open source for record 13" class="image-link" href="https://en.wikipedia.org/wiki/Ratu,_Jharkhand" rel="noopener noreferrer" target="_blank"><img alt="Ratu Fort — archival image" loading="lazy" onerror="this.closest('.record-image-wrap').classList.add('img-error')" src="https://d3fphkxyf5o5bm.cloudfront.net/image-resize/format%3Dwebp%2Cw%3D720/QwRY54Li1HMwD7oNfqZwhGZCtXOiJ1M1u8y6G8ZqaY"/></a>
+<span class="record-index">13</span>
+</div>
+<div class="record-body">
+<div class="record-meta"><span>Ranchi</span><span>Research record</span></div>
+<h3>Ratu Fort</h3>
+<p>Built in the late 19th century by the Nagvanshi dynasty, this expansive estate once served as the seat of the Maharaja of Chota Nagpur. While parts are historical landmarks, large sections remain closed off or inaccessible.</p>
+<div class="record-footer">
+<span>Contributor: <b>Amisha Kumari</b></span>
+<a href="https://en.wikipedia.org/wiki/Ratu,_Jharkhand" rel="noopener noreferrer" target="_blank">Open source ↗</a>
+</div>
+</div>
+</article>
+<article class="record-card reveal" data-contributor="amisha kumari" data-location="gumla" data-name="navratangarh fort">
+<div class="record-image-wrap">
+<a aria-label="Open source for record 14" class="image-link" href="https://en.wikipedia.org/wiki/Navratangarh" rel="noopener noreferrer" target="_blank"><img alt="Navratangarh Fort — archival image" loading="lazy" onerror="this.closest('.record-image-wrap').classList.add('img-error')" src="https://commons.wikimedia.org/wiki/Special:FilePath/Navratangarh%20Fort%20temple.jpg"/></a>
+<span class="record-index">14</span>
+</div>
+<div class="record-body">
+<div class="record-meta"><span>Gumla</span><span>Research record</span></div>
+<h3>Navratangarh Fort</h3>
+<p>Navratangarh fort is situated in Sisai block of the Gumla district. It was one of the capitals of the Nagvanshi Dynasty, which ruled parts of what is now the state of Jharkhand. The supplied notes state that the fort was constructed by the dynasty.</p>
+<div class="record-footer">
+<span>Contributor: <b>Amisha Kumari</b></span>
+<a href="https://en.wikipedia.org/wiki/Navratangarh" rel="noopener noreferrer" target="_blank">Open source ↗</a>
+</div>
+</div>
+</article>
+<article class="record-card reveal" data-contributor="amisha kumari" data-location="latehar" data-name="narayanpur fort">
+<div class="record-image-wrap">
+<a aria-label="Open source for record 15" class="image-link" href="https://latehar.nic.in/tourist-place/narayanpur-fort/" rel="noopener noreferrer" target="_blank"><img alt="Narayanpur Fort — archival image" loading="lazy" onerror="this.closest('.record-image-wrap').classList.add('img-error')" src="https://cdn.s3waas.gov.in/s3ba2fd310dcaa8781a9a652a31baf3c68/uploads/bfi_thumb/2018042729-rrqs3epzhvhli515ozwzr99xjf1x41ij9jdiuyaz1c.jpg"/></a>
+<span class="record-index">15</span>
+</div>
+<div class="record-body">
+<div class="record-meta"><span>Latehar</span><span>Research record</span></div>
+<h3>Narayanpur Fort</h3>
+<p>Narayanpur Fort – Nawagarh, Latehar, is located in Nawagarh block, Latehar district, tucked away in peaceful forested hills. The supplied notes describe it as built in the 16th–17th century by Jajhat Rai (Narayan Das), a chief.</p>
+<div class="record-footer">
+<span>Contributor: <b>Amisha Kumari</b></span>
+<a href="https://latehar.nic.in/tourist-place/narayanpur-fort/" rel="noopener noreferrer" target="_blank">Open source ↗</a>
+</div>
+</div>
+</article>
+<article class="record-card reveal" data-contributor="amisha kumari" data-location="palamu" data-name="bishrampur fort">
+<div class="record-image-wrap">
+<a aria-label="Open source for record 16" class="image-link" href="https://en.wikipedia.org/wiki/Bishrampur,_Jharkhand" rel="noopener noreferrer" target="_blank"><img alt="Bishrampur Fort — archival image" loading="lazy" onerror="this.closest('.record-image-wrap').classList.add('img-error')" src="https://image.thum.io/get/width/1200/crop/800/noanimate/https://palamu.nic.in/culture-heritage/attachment/2018042578/"/></a>
+<span class="record-index">16</span>
+</div>
+<div class="record-body">
+<div class="record-meta"><span>Palamu</span><span>Research record</span></div>
+<h3>Bishrampur Fort</h3>
+<p>Bishrampur Fort is a 17th-century Chero dynasty site located in the Palamu district of Jharkhand. The supplied notes state it was built by local Chero kings over approximately nine years and constructed from stone and brick with defensive walls.</p>
+<div class="record-footer">
+<span>Contributor: <b>Amisha Kumari</b></span>
+<a href="https://en.wikipedia.org/wiki/Bishrampur,_Jharkhand" rel="noopener noreferrer" target="_blank">Open source ↗</a>
+</div>
+</div>
+</article>
+<article class="record-card reveal" data-contributor="amisha kumari" data-location="hazaribagh" data-name="gibraltar house">
+<div class="record-image-wrap">
+<a aria-label="Open source for record 17" class="image-link" href="https://www.business-standard.com/amp/article/pti-stories/elephants-enter-hazaribagh-town-damage-gibraltar-house-113090900605_1.html" rel="noopener noreferrer" target="_blank"><img alt="Gibraltar House — archival image" loading="lazy" onerror="this.closest('.record-image-wrap').classList.add('img-error')" src="https://static.toiimg.com/thumb/msid-62039806%2Cimgsize-125250%2Cwidth-400%2Cheight-225%2Cresizemode-72/62039806.jpg"/></a>
+<span class="record-index">17</span>
+</div>
+<div class="record-body">
+<div class="record-meta"><span>Hazaribagh</span><span>Research record</span></div>
+<h3>Gibraltar House</h3>
+<p>A herd of 15 elephants damaged the 'Gibraltar House' built by a judge of the Calcutta High Court at Kanhari Hills in Hazaribagh town 150 years ago. The supplied notes identify the builder as S. C. Mallick, a judge of the Calcutta High Court.</p>
+<div class="record-footer">
+<span>Contributor: <b>Amisha Kumari</b></span>
+<a href="https://www.business-standard.com/amp/article/pti-stories/elephants-enter-hazaribagh-town-damage-gibraltar-house-113090900605_1.html" rel="noopener noreferrer" target="_blank">Open source ↗</a>
+</div>
+</div>
+</article>
+<article class="record-card reveal" data-contributor="amisha kumari" data-location="dumka" data-name="maluti fort / maluti heritage village">
+<div class="record-image-wrap">
+<a aria-label="Open source for record 18" class="image-link" href="https://cm.jharkhand.gov.in/maluti-temple-town" rel="noopener noreferrer" target="_blank"><img alt="Maluti Fort / Maluti Heritage Village — archival image" loading="lazy" onerror="this.closest('.record-image-wrap').classList.add('img-error')" src="https://commons.wikimedia.org/wiki/Special:FilePath/Maluti%20Temple%20in%20jharkhand.jpg"/></a>
+<span class="record-index">18</span>
+</div>
+<div class="record-body">
+<div class="record-meta"><span>Dumka</span><span>Research record</span></div>
+<h3>Maluti Fort / Maluti Heritage Village</h3>
+<p>Maluti is a unique heritage village in Dumka district, 55 kms from Dumka town, that boasts of exquisite terracotta temples. The supplied notes state that the village was once known as 'Gupta Kashi' or hidden Varanasi.</p>
+<div class="record-footer">
+<span>Contributor: <b>Amisha Kumari</b></span>
+<a href="https://cm.jharkhand.gov.in/maluti-temple-town" rel="noopener noreferrer" target="_blank">Open source ↗</a>
+</div>
+</div>
+</article>
+<article class="record-card reveal" data-contributor="nisha kumari" data-location="chatra" data-name="ray bachra underground mine">
+<div class="record-image-wrap">
+<a aria-label="Open source for record 19" class="image-link" href="https://share.google/pUfy7mkNAkeZbFJgDD" rel="noopener noreferrer" target="_blank"><img alt="Ray Bachra Underground Mine — archival image" loading="lazy" onerror="this.closest('.record-image-wrap').classList.add('img-error')" src="https://commons.wikimedia.org/wiki/Special:FilePath/Coal%20Miner%201975.JPG"/></a>
+<span class="record-index">19</span>
+</div>
+<div class="record-body">
+<div class="record-meta"><span>Chatra</span><span>Research record</span></div>
+<h3>Ray Bachra Underground Mine</h3>
+<p>Ray-Bachra Underground Mine (Piparwar / Chatra Region) is located in the North Karanpura Coalfields near the Chatra/Ranchi border. The supplied notes describe older underground shafts that were closed and abandoned after seam depletion.</p>
+<div class="record-footer">
+<span>Contributor: <b>Nisha Kumari</b></span>
+<a href="https://share.google/pUfy7mkNAkeZbFJgDD" rel="noopener noreferrer" target="_blank">Open source ↗</a>
+</div>
+</div>
+</article>
+<article class="record-card reveal" data-contributor="nisha kumari" data-location="bokaro" data-name="kargali old underground mine">
+<div class="record-image-wrap">
+<a aria-label="Open source for record 20" class="image-link" href="https://share.google/ZFLkelzHV33EFOuPD" rel="noopener noreferrer" target="_blank"><img alt="Kargali Old Underground Mine — archival image" loading="lazy" onerror="this.closest('.record-image-wrap').classList.add('img-error')" src="https://drishtiias.com/images/uploads/1695390095_image9.png"/></a>
+<span class="record-index">20</span>
+</div>
+<div class="record-body">
+<div class="record-meta"><span>Bokaro</span><span>Research record</span></div>
+<h3>Kargali Old Underground Mine</h3>
+<p>Kargali Old Underground Mine (Bokaro Field, Bokaro) was operated under CCL. The supplied notes state that the old underground pit was abandoned after exhausting its main upper seams, with major operations shifting to open-cast mining nearby.</p>
+<div class="record-footer">
+<span>Contributor: <b>Nisha Kumari</b></span>
+<a href="https://share.google/ZFLkelzHV33EFOuPD" rel="noopener noreferrer" target="_blank">Open source ↗</a>
+</div>
+</div>
+</article>
+<article class="record-card reveal" data-contributor="nisha kumari" data-location="jharia" data-name="bagdigi colliery">
+<div class="record-image-wrap">
+<a aria-label="Open source for record 21" class="image-link" href="https://share.google/k5L36gfVRRVPYRp9vv" rel="noopener noreferrer" target="_blank"><img alt="Bagdigi Colliery — archival image" loading="lazy" onerror="this.closest('.record-image-wrap').classList.add('img-error')" src="https://assets.telegraphindia.com/telegraph/21Dhanemission3_180150.jpg"/></a>
+<span class="record-index">21</span>
+</div>
+<div class="record-body">
+<div class="record-meta"><span>Jharia</span><span>Research record</span></div>
+<h3>Bagdigi Colliery</h3>
+<p>Bagdigi Colliery (Jharia Belt, Dhanbad) is associated in the supplied notes with the tragic 2001 mine disaster in which 29 miners died after underground walls ruptured and the pits were inundated with water.</p>
+<div class="record-footer">
+<span>Contributor: <b>Nisha Kumari</b></span>
+<a href="https://share.google/k5L36gfVRRVPYRp9vv" rel="noopener noreferrer" target="_blank">Open source ↗</a>
+</div>
+</div>
+</article>
+<article class="record-card reveal" data-contributor="nisha kumari" data-location="jharia" data-name="bararee colliery">
+<div class="record-image-wrap">
+<a aria-label="Open source for record 22" class="image-link" href="https://share.google/qOn3xKbuezdssIuhQ" rel="noopener noreferrer" target="_blank"><img alt="Bararee Colliery — archival image" loading="lazy" onerror="this.closest('.record-image-wrap').classList.add('img-error')" src="https://im.rediff.com/money/2013/may/14dhanbad13.jpg"/></a>
+<span class="record-index">22</span>
+</div>
+<div class="record-body">
+<div class="record-meta"><span>Jharia</span><span>Research record</span></div>
+<h3>Bararee Colliery</h3>
+<p>Bararee Colliery (Jharia Belt, Dhanbad) is described in the supplied notes as an old opencast/underground mining area under BCCL. Worked-out sections have been abandoned due to depleted shallow coal reserves and susceptibility to underground fire.</p>
+<div class="record-footer">
+<span>Contributor: <b>Nisha Kumari</b></span>
+<a href="https://share.google/qOn3xKbuezdssIuhQ" rel="noopener noreferrer" target="_blank">Open source ↗</a>
+</div>
+</div>
+</article>
+<article class="record-card reveal" data-contributor="nisha kumari" data-location="bokaro" data-name="new selected dhori (nsd)">
+<div class="record-image-wrap">
+<a aria-label="Open source for record 23" class="image-link" href="https://share.google/PhSaY1zySHerCuD5y" rel="noopener noreferrer" target="_blank"><img alt="New Selected Dhori (NSD) — archival image" loading="lazy" onerror="this.closest('.record-image-wrap').classList.add('img-error')" src="https://image.thum.io/get/width/1200/crop/800/noanimate/https://india.mongabay.com/2026/08/the-mine-closes-but-the-transition-is-far-from-over/"/></a>
+<span class="record-index">23</span>
+</div>
+<div class="record-body">
+<div class="record-meta"><span>Bokaro</span><span>Research record</span></div>
+<h3>New Selected Dhori (NSD)</h3>
+<p>New Selected Dhori (NSD) UG Subsidiary / Area: CCL, Dhori Area (East Bokaro Coalfield). The supplied archive records a closure date of 25 March 2026, with 1.8 Mt lifetime production and 9.4 hectares reforested; surface infrastructure was repurposed for local school facilities.</p>
+<div class="record-footer">
+<span>Contributor: <b>Nisha Kumari</b></span>
+<a href="https://share.google/PhSaY1zySHerCuD5y" rel="noopener noreferrer" target="_blank">Open source ↗</a>
+</div>
+</div>
+</article>
+<article class="record-card reveal" data-contributor="nisha kumari" data-location="bokaro" data-name="jarangdih underground mine">
+<div class="record-image-wrap">
+<a aria-label="Open source for record 24" class="image-link" href="https://share.google/pE3uJXMqEmK5ejryH" rel="noopener noreferrer" target="_blank"><img alt="Jarangdih Underground Mine — archival image" loading="lazy" onerror="this.closest('.record-image-wrap').classList.add('img-error')" src="https://image.thum.io/get/width/1200/crop/800/noanimate/https://www.jagran.com/jharkhand/bokaro-jarangdih-opencast-mines-shut-down-19896518.html"/></a>
+<span class="record-index">24</span>
+</div>
+<div class="record-body">
+<div class="record-meta"><span>Bokaro</span><span>Research record</span></div>
+<h3>Jarangdih Underground Mine</h3>
+<p>Jarangdih UG Subsidiary / Area: CCL, Kathara Area (East Bokaro Coalfield). The supplied archive records closure on 31 March 2025 and describes it as Jharkhand's first scientifically closed mine under Coal Controller guidelines, with about 109 hectares ecologically restored with 300,000+ saplings.</p>
+<div class="record-footer">
+<span>Contributor: <b>Nisha Kumari</b></span>
+<a href="https://share.google/pE3uJXMqEmK5ejryH" rel="noopener noreferrer" target="_blank">Open source ↗</a>
+</div>
+</div>
+</article>
+<article class="record-card reveal" data-contributor="nisha kumari" data-location="govindpur" data-name="hantoodih &amp; muchraidih collieries">
+<div class="record-image-wrap">
+<a aria-label="Open source for record 25" class="image-link" href="https://share.google/Jst41UxHsCHwpmHEo" rel="noopener noreferrer" target="_blank"><img alt="Hantoodih &amp; Muchraidih Collieries — archival image" loading="lazy" onerror="this.closest('.record-image-wrap').classList.add('img-error')" src="https://commons.wikimedia.org/wiki/Special:FilePath/Jharia%20coalfield,%20Jharkhand.jpg"/></a>
+<span class="record-index">25</span>
+</div>
+<div class="record-body">
+<div class="record-meta"><span>Govindpur</span><span>Research record</span></div>
+<h3>Hantoodih &amp; Muchraidih Collieries</h3>
+<p>Administrative Area: Western / Govindpur Area region. The supplied notes describe legacy underground/mixed workings taken over during coal nationalization in 1972–73, with small to medium-scale extraction along thin-to-medium coal seams.</p>
+<div class="record-footer">
+<span>Contributor: <b>Nisha Kumari</b></span>
+<a href="https://share.google/Jst41UxHsCHwpmHEo" rel="noopener noreferrer" target="_blank">Open source ↗</a>
+</div>
+</div>
+</article>
+<article class="record-card reveal" data-contributor="nisha kumari" data-location="sijua" data-name="bhurungia mine">
+<div class="record-image-wrap">
+<a aria-label="Open source for record 26" class="image-link" href="https://share.google/nEEAK9aXcs8wQv54x" rel="noopener noreferrer" target="_blank"><img alt="Bhurungia Mine — archival image" loading="lazy" onerror="this.closest('.record-image-wrap').classList.add('img-error')" src="https://commons.wikimedia.org/wiki/Special:FilePath/Coal%20Mine.jpg"/></a>
+<span class="record-index">26</span>
+</div>
+<div class="record-body">
+<div class="record-meta"><span>Sijua</span><span>Research record</span></div>
+<h3>Bhurungia Mine</h3>
+<p>Bhurungia Mine / Colliery is described in the supplied archive as being in the Sijua Area / Katras Area belt. It was worked from the pre-nationalization era and targeted upper Barakar coal seams; portions faced subsidence and underground fire risks common to central Jharia.</p>
+<div class="record-footer">
+<span>Contributor: <b>Nisha Kumari</b></span>
+<a href="https://share.google/nEEAK9aXcs8wQv54x" rel="noopener noreferrer" target="_blank">Open source ↗</a>
+</div>
+</div>
+</article>
+<article class="record-card reveal" data-contributor="nisha kumari" data-location="dhanbad" data-name="salanpur coal mines">
+<div class="record-image-wrap">
+<a aria-label="Open source for record 27" class="image-link" href="https://share.google/mWdDmrmftlF54FJ6j" rel="noopener noreferrer" target="_blank"><img alt="Salanpur Coal Mines — archival image" loading="lazy" onerror="this.closest('.record-image-wrap').classList.add('img-error')" src="https://commons.wikimedia.org/wiki/Special:FilePath/Salanpur%20village,%20near%20Asansol,%20West%20Bengal%2003.jpg"/></a>
+<span class="record-index">27</span>
+</div>
+<div class="record-body">
+<div class="record-meta"><span>Dhanbad</span><span>Research record</span></div>
+<h3>Salanpur Coal Mines</h3>
+<p>The supplied archive describes the Salanpur block in Paschim Bardhaman, West Bengal as featuring numerous abandoned and disused coal and fire-clay mines under Eastern Coalfields Limited (ECL).</p>
+<div class="record-footer">
+<span>Contributor: <b>Nisha Kumari</b></span>
+<a href="https://share.google/mWdDmrmftlF54FJ6j" rel="noopener noreferrer" target="_blank">Open source ↗</a>
+</div>
+</div>
+</article>
+<article class="record-card reveal" data-contributor="nisha kumari" data-location="dhanbad" data-name="gajlitand colliery">
+<div class="record-image-wrap">
+<a aria-label="Open source for record 28" class="image-link" href="https://share.google/3b9w3FaoMMInHY2gf" rel="noopener noreferrer" target="_blank"><img alt="Gajlitand Colliery — archival image" loading="lazy" onerror="this.closest('.record-image-wrap').classList.add('img-error')" src="https://www.jagranimages.com/images/newimg/26092022/26_09_2022-gajlitand_23099327_m.webp"/></a>
+<span class="record-index">28</span>
+</div>
+<div class="record-body">
+<div class="record-meta"><span>Dhanbad</span><span>Research record</span></div>
+<h3>Gajlitand Colliery</h3>
+<p>Gajlitand Colliery is an underground coal mine located in the Katras area of Dhanbad, Jharkhand, operated under Bharat Coking Coal Limited (BCCL). The supplied notes also associate the mine with a September 26, 1995 incident.</p>
+<div class="record-footer">
+<span>Contributor: <b>Nisha Kumari</b></span>
+<a href="https://share.google/3b9w3FaoMMInHY2gf" rel="noopener noreferrer" target="_blank">Open source ↗</a>
+</div>
+</div>
+</article></div>
+</section>
+<section id="metadata">
+<div class="head reveal"><div><div class="kicker">03 — Metadata Framework</div><h2>Every place<br/>needs a record.</h2></div><p class="intro">A reusable metadata structure makes photographs, geography, historical description and source provenance easier to study.</p></div>
+<div class="metadata">
+<article class="reveal"><p><b>Definition:</b> Metadata is structured information about an archive item. In this project, a record connects a place name and location with its image, description, contributor and reference source.</p><p><b>Digital Humanities value:</b> The same framework can later be expanded with GPS coordinates, architectural condition, field photographs, oral-history transcripts, dates, tags, map layers and preservation status.</p></article>
+<div class="meta-list reveal">
+<div class="meta-row"><div class="meta-no">01</div><div><h3>Place &amp; Location</h3><p>District, locality and geographic identity.</p></div><div>⌖</div></div>
+<div class="meta-row"><div class="meta-no">02</div><div><h3>Image Documentation</h3><p>Visual evidence linked directly to the supplied image source.</p></div><div>▣</div></div>
+<div class="meta-row"><div class="meta-no">03</div><div><h3>Description / Historical Context</h3><p>Concise contextual description supplied for each record.</p></div><div>⌂</div></div>
+<div class="meta-row"><div class="meta-no">04</div><div><h3>Source Provenance</h3><p>Clickable reference link for further reading or verification.</p></div><div>↗</div></div>
+<div class="meta-row"><div class="meta-no">05</div><div><h3>Contributor</h3><p>Student researcher associated with the supplied record.</p></div><div>◌</div></div>
+</div>
+</div>
+</section>
+<section class="team" id="team">
+<div class="head reveal"><div><div class="kicker">04 — Project Team</div><h2>Project Researchers<br/>&amp; Authors</h2></div><p class="intro">Student researchers contributing records to the Digital Humanities archive.</p></div>
+<div class="people">
+<article class="person reveal"><div class="avatar">ZS</div><h3>Zaheduli Slam</h3><div class="role">Student Researcher</div><div class="roll">Roll No: <b>26MA0029</b></div></article>
+<article class="person reveal"><div class="avatar">AK</div><h3>Amisha Kumari</h3><div class="role">Student Researcher</div><div class="roll">Roll No: <b>26MA0003</b></div></article>
+<article class="person reveal"><div class="avatar">NK</div><h3>Nisha Kumari</h3><div class="role">Student Researcher</div><div class="roll">Roll No: <b>26MA0015</b></div></article>
+</div>
+</section>
+<section id="contact">
+<div class="head reveal"><div><div class="kicker">05 — Academic Notice</div><h2>Keep the<br/>archive alive.</h2></div></div>
+<div class="contact">
+<article class="contact-card dark reveal"><h3>Digital Humanities Archive</h3><p>This interface is an academic project prototype for documenting abandoned and historically significant places through images, descriptions, sources and metadata.</p><a class="contact-link" href="mailto:dh.archive@example.com">Contact the project →</a></article>
+<article class="contact-card reveal"><h3>Use sources responsibly</h3><p>The supplied records contain external images and references. For formal academic work, follow each source link, verify claims, credit photographers/publishers where required, and obtain permission where necessary.</p><a class="contact-link" href="#archive">Return to archive →</a></article>
+</div>
+</section>
+</main>
+<footer><div class="foot"><div><strong>Abandoned Places of Jharkhand</strong><br/>Digital Humanities Departmental / Academic Project Notice</div><div>© <span id="year"></span> · <a href="#contact">Contact</a></div></div></footer>
+<script>
+const cards=[...document.querySelectorAll(".record-card")];
+const search=document.getElementById("search");
+const contributor=document.getElementById("contributor");
+const locationFilter=document.getElementById("location");
+const count=document.getElementById("count");
+
+const locations=[...new Set(cards.map(c=>c.dataset.location))].sort();
+locations.forEach(loc=>{
+  const o=document.createElement("option");
+  o.value=loc;o.textContent=loc.replace(/\b\w/g,m=>m.toUpperCase());
+  locationFilter.appendChild(o);
+});
+
+function filterArchive(){
+  const q=search.value.toLowerCase().trim();
+  const person=contributor.value.toLowerCase();
+  const loc=locationFilter.value;
+  let shown=0;
+  cards.forEach(card=>{
+    const text=card.innerText.toLowerCase();
+    const okQ=!q||text.includes(q);
+    const okP=person==="all"||card.dataset.contributor===person;
+    const okL=loc==="all"||card.dataset.location===loc;
+    const show=okQ&&okP&&okL;
+    card.style.display=show?"flex":"none";
+    if(show) shown++;
+  });
+  count.textContent=shown;
+}
+[search,contributor,locationFilter].forEach(el=>el.addEventListener("input",filterArchive));
+[search,contributor,locationFilter].forEach(el=>el.addEventListener("change",filterArchive));
+
+document.querySelectorAll('a[href^="#"]').forEach(a=>a.addEventListener("click",e=>{
+  const t=document.querySelector(a.getAttribute("href"));
+  if(t){e.preventDefault();t.scrollIntoView({behavior:"smooth",block:"start"});}
+}));
+
+const observer=new IntersectionObserver(entries=>entries.forEach(e=>{
+  if(e.isIntersecting){e.target.classList.add("visible");observer.unobserve(e.target);}
+}),{threshold:.08});
+document.querySelectorAll(".reveal").forEach(e=>observer.observe(e));
+document.getElementById("year").textContent=new Date().getFullYear();
+</script>
+</body>
+</html>
